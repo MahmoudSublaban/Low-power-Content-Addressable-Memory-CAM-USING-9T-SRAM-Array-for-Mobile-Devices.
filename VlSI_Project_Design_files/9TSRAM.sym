@@ -1,0 +1,40 @@
+USER SYMBOL by DSCH 3.5
+DATE 19/02/2022 19:28:42
+SYM  #9TSRAM
+BB(0,0,40,60)
+TITLE 10 -7  #9TSRAM
+MODEL 6000
+REC(5,5,30,50)
+PIN(0,10,0.00,0.00)WLWR
+PIN(0,50,0.00,0.00)DL
+PIN(0,40,0.00,0.00)DLB
+PIN(0,30,0.00,0.00)RBL
+PIN(0,20,0.00,0.00)RWL
+PIN(40,10,2.00,1.00)QB
+PIN(40,20,2.00,1.00)Q
+LIG(0,10,5,10)
+LIG(0,50,5,50)
+LIG(0,40,5,40)
+LIG(0,30,5,30)
+LIG(0,20,5,20)
+LIG(35,10,40,10)
+LIG(35,20,40,20)
+LIG(5,5,5,55)
+LIG(5,5,35,5)
+LIG(35,5,35,55)
+LIG(35,55,5,55)
+VLG module 9TSRAM( WLWR,DL,DLB,RBL,RWL,QB,Q);
+VLG  input WLWR,DL,DLB,RBL,RWL;
+VLG  output QB,Q;
+VLG  wire w7,w10;
+VLG  nmos #(3) nmos_1(Q,DL,WLWR); // 0.3u 0.07u
+VLG  pmos #(2) pmos_2(vdd,Q,QB); // 0.5u 0.07u
+VLG  nmos #(3) nmos_3(vss,Q,QB); // 0.3u 0.07u
+VLG  nmos #(3) nmos_4(QB,vss,Q); // 0.3u 0.07u
+VLG  pmos #(3) pmos_5(QB,vdd,Q); // 0.5u 0.07u
+VLG  nmos #(1) nmos_6(DLB,QB,WLWR); // 0.3u 0.07u
+VLG  nmos #(1) nmos_7(RBL,w7,RWL); // 0.3u 0.07u
+VLG  nmos #(1) nmos_8(w10,vss,QB); // 0.3u 0.07u
+VLG  nmos #(1) nmos_9(w7,w10,RWL); // 0.3u 0.07u
+VLG endmodule
+FSYM

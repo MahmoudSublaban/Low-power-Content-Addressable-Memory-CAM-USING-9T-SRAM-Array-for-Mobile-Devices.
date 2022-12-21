@@ -1,0 +1,50 @@
+USER SYMBOL by DSCH 3.5
+DATE 21/02/2022 21:51:25
+SYM  #9TCAMCELL
+BB(0,0,40,70)
+TITLE 10 -7  #9TCAMCELL
+MODEL 6000
+REC(5,5,30,60)
+PIN(0,60,0.00,0.00)CAMData
+PIN(0,10,0.00,0.00)WLWR
+PIN(0,20,0.00,0.00)RWL
+PIN(0,30,0.00,0.00)RBL
+PIN(0,40,0.00,0.00)DLB
+PIN(0,50,0.00,0.00)DL
+PIN(40,10,2.00,1.00)MATCH
+LIG(0,60,5,60)
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(0,30,5,30)
+LIG(0,40,5,40)
+LIG(0,50,5,50)
+LIG(35,10,40,10)
+LIG(5,5,5,65)
+LIG(5,5,35,5)
+LIG(35,5,35,65)
+LIG(35,65,5,65)
+VLG module 9TCAMCELL( CAMData,WLWR,RWL,RBL,DLB,DL,MATCH);
+VLG  input CAMData,WLWR,RWL,RBL,DLB,DL;
+VLG  output MATCH;
+VLG  wire w3,w4,w5,w7,w13,w14,w15,w16;
+VLG  nmos #(3) nmos_1(w3,vss,CAMData); // 0.3u 0.07u
+VLG  pmos #(3) pmos_2(w3,vdd,CAMData); // 0.5u 0.07u
+VLG  nmos #(2) nmos_3(w4,vss,w3); // 0.3u 0.07u
+VLG  pmos #(2) pmos_4(w4,vdd,w3); // 0.5u 0.07u
+VLG  not #(1) not1_5(w13,w5);
+VLG  nmos #(3) nmos1_6(MATCH,w3,w5); //  
+VLG  pmos #(3) pmos1_7(MATCH,w3,w13); //  
+VLG  not #(1) not1_8(w14,w7);
+VLG  nmos #(3) nmos1_9(MATCH,w4,w7); //  
+VLG  pmos #(3) pmos1_10(MATCH,w4,w14); //  
+VLG  nmos #(4) nmos_1_11(w5,DL,WLWR); //  
+VLG  pmos #(3) pmos_2_12(vdd,w5,w7); //  
+VLG  nmos #(4) nmos_3_13(vss,w5,w7); //  
+VLG  nmos #(4) nmos_4_14(w7,vss,w5); //  
+VLG  pmos #(4) pmos_5_15(w7,vdd,w5); //  
+VLG  nmos #(1) nmos_6_16(DLB,w7,WLWR); //  
+VLG  nmos #(1) nmos_7_17(RBL,w15,RWL); //  
+VLG  nmos #(1) nmos_8_18(w16,vss,w7); //  
+VLG  nmos #(1) nmos_9_19(w15,w16,RWL); //  
+VLG endmodule
+FSYM

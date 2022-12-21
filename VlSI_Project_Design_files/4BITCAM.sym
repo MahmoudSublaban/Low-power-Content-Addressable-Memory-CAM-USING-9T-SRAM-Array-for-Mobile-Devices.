@@ -1,0 +1,134 @@
+USER SYMBOL by DSCH 3.5
+DATE 21/02/2022 22:12:47
+SYM  #4BITCAM
+BB(0,0,40,160)
+TITLE 10 -7  #4BITCAM
+MODEL 6000
+REC(5,5,30,150)
+PIN(0,130,0.00,0.00)CAMDATA2
+PIN(0,10,0.00,0.00)WLWR
+PIN(0,20,0.00,0.00)RWL
+PIN(0,30,0.00,0.00)RBL
+PIN(0,80,0.00,0.00)DL3
+PIN(0,40,0.00,0.00)DLB3
+PIN(0,120,0.00,0.00)CAMDATA3
+PIN(0,100,0.00,0.00)DL1
+PIN(0,60,0.00,0.00)DLB1
+PIN(0,140,0.00,0.00)CAMDATA1
+PIN(0,50,0.00,0.00)DLB2
+PIN(0,150,0.00,0.00)CAMDATA0
+PIN(0,70,0.00,0.00)DLB0
+PIN(0,110,0.00,0.00)DL0
+PIN(0,90,0.00,0.00)DL2
+PIN(40,10,2.00,1.00)MATCH
+LIG(0,130,5,130)
+LIG(0,10,5,10)
+LIG(0,20,5,20)
+LIG(0,30,5,30)
+LIG(0,80,5,80)
+LIG(0,40,5,40)
+LIG(0,120,5,120)
+LIG(0,100,5,100)
+LIG(0,60,5,60)
+LIG(0,140,5,140)
+LIG(0,50,5,50)
+LIG(0,150,5,150)
+LIG(0,70,5,70)
+LIG(0,110,5,110)
+LIG(0,90,5,90)
+LIG(35,10,40,10)
+LIG(5,5,5,155)
+LIG(5,5,35,5)
+LIG(35,5,35,155)
+LIG(35,155,5,155)
+VLG module 4BITCAM( CAMDATA2,WLWR,RWL,RBL,DL3,DLB3,CAMDATA3,DL1,
+VLG  DLB1,CAMDATA1,DLB2,CAMDATA0,DLB0,DL0,DL2,MATCH);
+VLG  input CAMDATA2,WLWR,RWL,RBL,DL3,DLB3,CAMDATA3,DL1;
+VLG  input DLB1,CAMDATA1,DLB2,CAMDATA0,DLB0,DL0,DL2;
+VLG  output MATCH;
+VLG  wire w9,w10,w20,w21,w22,w23,w24,w25;
+VLG  wire w26,w27,w28,w29,w30,w31,w32,w33;
+VLG  wire w34,w35,w36,w37,w38,w39,w40,w41;
+VLG  wire w42,w43,w44,w45,w46,w47,w48,w49;
+VLG  wire w50,w51,w52,w53,w54,w55;
+VLG  or #(3) or2_1(MATCH,w9,w10);
+VLG  or #(3) or2_2(w9,w23,w22);
+VLG  or #(3) or2_3(w10,w21,w20);
+VLG  nmos #(3) nmos_1_4(w24,vss,CAMDATA0); //  
+VLG  pmos #(3) pmos_2_5(w24,vdd,CAMDATA0); //  
+VLG  nmos #(2) nmos_3_6(w25,vss,w24); //  
+VLG  pmos #(2) pmos_4_7(w25,vdd,w24); //  
+VLG  not #(1) not1_5_8(w27,w26);
+VLG  nmos #(3) nmos1_6_9(w20,w24,w26); //  
+VLG  pmos #(3) pmos1_7_10(w20,w24,w27); //  
+VLG  not #(1) not1_8_11(w29,w28);
+VLG  nmos #(3) nmos1_9_12(w20,w25,w28); //  
+VLG  pmos #(3) pmos1_10_13(w20,w25,w29); //  
+VLG  nmos #(4) nmos_1_11_14(w26,DL0,WLWR); //  
+VLG  pmos #(7) pmos_2_12_15(vdd,w26,w28); //  
+VLG  nmos #(10) nmos_3_13_16(vss,w26,w28); //  
+VLG  nmos #(5) nmos_4_14_17(w28,vss,w26); //  
+VLG  pmos #(5) pmos_5_15_18(w28,vdd,w26); //  
+VLG  nmos #(1) nmos_6_16_19(DLB0,w28,WLWR); //  
+VLG  nmos #(2) nmos_7_17_20(RBL,w30,RWL); //  
+VLG  nmos #(1) nmos_8_18_21(w31,vss,w28); //  
+VLG  nmos #(1) nmos_9_19_22(w30,w31,RWL); //  
+VLG  nmos #(3) nmos_1_23(w32,vss,CAMDATA1); //  
+VLG  pmos #(3) pmos_2_24(w32,vdd,CAMDATA1); //  
+VLG  nmos #(2) nmos_3_25(w33,vss,w32); //  
+VLG  pmos #(2) pmos_4_26(w33,vdd,w32); //  
+VLG  not #(1) not1_5_27(w35,w34);
+VLG  nmos #(3) nmos1_6_28(w21,w32,w34); //  
+VLG  pmos #(3) pmos1_7_29(w21,w32,w35); //  
+VLG  not #(1) not1_8_30(w37,w36);
+VLG  nmos #(3) nmos1_9_31(w21,w33,w36); //  
+VLG  pmos #(3) pmos1_10_32(w21,w33,w37); //  
+VLG  nmos #(4) nmos_1_11_33(w34,DL1,WLWR); //  
+VLG  pmos #(7) pmos_2_12_34(vdd,w34,w36); //  
+VLG  nmos #(10) nmos_3_13_35(vss,w34,w36); //  
+VLG  nmos #(5) nmos_4_14_36(w36,vss,w34); //  
+VLG  pmos #(5) pmos_5_15_37(w36,vdd,w34); //  
+VLG  nmos #(1) nmos_6_16_38(DLB1,w36,WLWR); //  
+VLG  nmos #(2) nmos_7_17_39(RBL,w38,RWL); //  
+VLG  nmos #(1) nmos_8_18_40(w39,vss,w36); //  
+VLG  nmos #(1) nmos_9_19_41(w38,w39,RWL); //  
+VLG  nmos #(3) nmos_1_42(w40,vss,CAMDATA2); //  
+VLG  pmos #(3) pmos_2_43(w40,vdd,CAMDATA2); //  
+VLG  nmos #(2) nmos_3_44(w41,vss,w40); //  
+VLG  pmos #(2) pmos_4_45(w41,vdd,w40); //  
+VLG  not #(1) not1_5_46(w43,w42);
+VLG  nmos #(3) nmos1_6_47(w22,w40,w42); //  
+VLG  pmos #(3) pmos1_7_48(w22,w40,w43); //  
+VLG  not #(1) not1_8_49(w45,w44);
+VLG  nmos #(3) nmos1_9_50(w22,w41,w44); //  
+VLG  pmos #(3) pmos1_10_51(w22,w41,w45); //  
+VLG  nmos #(4) nmos_1_11_52(w42,DL2,WLWR); //  
+VLG  pmos #(7) pmos_2_12_53(vdd,w42,w44); //  
+VLG  nmos #(10) nmos_3_13_54(vss,w42,w44); //  
+VLG  nmos #(5) nmos_4_14_55(w44,vss,w42); //  
+VLG  pmos #(5) pmos_5_15_56(w44,vdd,w42); //  
+VLG  nmos #(1) nmos_6_16_57(DLB2,w44,WLWR); //  
+VLG  nmos #(2) nmos_7_17_58(RBL,w46,RWL); //  
+VLG  nmos #(1) nmos_8_18_59(w47,vss,w44); //  
+VLG  nmos #(1) nmos_9_19_60(w46,w47,RWL); //  
+VLG  nmos #(3) nmos_1_61(w48,vss,CAMDATA3); //  
+VLG  pmos #(3) pmos_2_62(w48,vdd,CAMDATA3); //  
+VLG  nmos #(2) nmos_3_63(w49,vss,w48); //  
+VLG  pmos #(2) pmos_4_64(w49,vdd,w48); //  
+VLG  not #(1) not1_5_65(w51,w50);
+VLG  nmos #(3) nmos1_6_66(w23,w48,w50); //  
+VLG  pmos #(3) pmos1_7_67(w23,w48,w51); //  
+VLG  not #(1) not1_8_68(w53,w52);
+VLG  nmos #(3) nmos1_9_69(w23,w49,w52); //  
+VLG  pmos #(3) pmos1_10_70(w23,w49,w53); //  
+VLG  nmos #(4) nmos_1_11_71(w50,DL3,WLWR); //  
+VLG  pmos #(7) pmos_2_12_72(vdd,w50,w52); //  
+VLG  nmos #(10) nmos_3_13_73(vss,w50,w52); //  
+VLG  nmos #(5) nmos_4_14_74(w52,vss,w50); //  
+VLG  pmos #(5) pmos_5_15_75(w52,vdd,w50); //  
+VLG  nmos #(1) nmos_6_16_76(DLB3,w52,WLWR); //  
+VLG  nmos #(2) nmos_7_17_77(RBL,w54,RWL); //  
+VLG  nmos #(1) nmos_8_18_78(w55,vss,w52); //  
+VLG  nmos #(1) nmos_9_19_79(w54,w55,RWL); //  
+VLG endmodule
+FSYM
